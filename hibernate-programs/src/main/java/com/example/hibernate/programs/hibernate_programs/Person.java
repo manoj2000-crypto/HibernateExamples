@@ -16,6 +16,7 @@ public class Person {
 	public String toString() {
 		return "Person [personId=" + personId + ", name=" + name + ", location=" + location + "]";
 	}
+	
 	public void setPersonId(int personId) {
 		this.personId = personId;
 	}

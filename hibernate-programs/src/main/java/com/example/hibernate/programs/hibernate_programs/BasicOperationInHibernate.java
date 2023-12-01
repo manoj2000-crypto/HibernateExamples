@@ -10,30 +10,29 @@ public class BasicOperationInHibernate {
 		Session session = createConnection();
 		//savePerson(createPerson(),session); 
 		//fetchPersonById(session);
-		updatePersonById(session);
+		//updatePersonById(session);
 		//deltePerson(session);
 	}
 
 	@SuppressWarnings({ "unused", "deprecation" })
 	private static void deltePerson(Session session) {
-		Person personObj = session.get(Person.class, 100);
+		Person personObj = session.get(Person.class, 999);
 		if(personObj != null) {
 			session.beginTransaction();
-
 			session.delete(personObj);
 			session.getTransaction().commit();
 		}
 		else System.out.println("record with the specified key is not present");
 	}
 
-	//@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unused" })
 	private static void updatePersonById(Session session) {
 		Person personObj = session.get(Person.class, 999);
 		if(personObj != null) {
 			//in session if u do any changes it ll be visible in db even if u dont tell save or persist
 			session.beginTransaction();
-			personObj.setName("Divya");
-			personObj.setLocation("Telangana");
+			personObj.setName("mmk");
+			personObj.setLocation("Mumbai");
 			//session.saveOrUpdate(personObj);
 			//session.save(personObj);
 			session.getTransaction().commit();
@@ -63,9 +62,9 @@ public class BasicOperationInHibernate {
 	private static Person createPerson() {
 		Person person = new Person();
 		//read values 
-		person.setLocation("Pune");
-		person.setName("Manoj");
-		person.setPersonId(999);
+		person.setLocation("Tamilnadu");
+		person.setName("Madhubala");
+		person.setPersonId(321);
 		return person;
 	}
 
